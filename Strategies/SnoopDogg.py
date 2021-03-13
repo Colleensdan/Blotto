@@ -4,8 +4,8 @@ import inspect
 import random
 import numpy as np
 
-from BaseStrategy import BaseStrategy
-from StrategyUtils.assorted_utils import counter_allocation
+from Blotto.BaseStrategy import BaseStrategy
+from Blotto.StrategyUtils.assorted_utils import counter_allocation
 
 
 class SnoopDogg(BaseStrategy):
@@ -50,16 +50,17 @@ class SnoopDogg(BaseStrategy):
 
 
 def main():
-    from Strategies.RandomStrategy import RandomStrategy, RandomStyle
-    from GameManager import GameManager
+    from Blotto.Strategies.RandomStrategy import RandomStrategy, RandomStyle
+    from Blotto.GameManager import GameManager
 
-    strategy_a = SnoopDog("Snoop!")
+    strategy_a = SnoopDogg("Snoop!")
     strategy_b = RandomStrategy("Rando", [0.4, 0.4, 0.2], shuffle=True, style=RandomStyle.NUMBER)
 
     gm = GameManager(strategy_a, strategy_b, 3, 30, total_score=False)
     gm.run()
     gm.plot_results()
     gm.declare_winner()
+
 
 if __name__ == "__main__":
     main()

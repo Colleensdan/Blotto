@@ -51,7 +51,7 @@
 """
 from random import random, shuffle
 from itertools import permutations
-from .simpleinterface import strategyOf
+from simpleinterface import strategyOf
 
 def PonyStrategy():
     return strategyOf(SupportVectorPony)
@@ -83,7 +83,7 @@ def Escore(v,w):
     v,w = simplify(v,w)
     distribution = scoreDistribution(v,w)
     total = 0
-    for (score,times) in list(distribution.items()):
+    for (score,times) in distribution.items():
         if score > 0: total += times
         if score < 0: total -= times
     return total
@@ -97,22 +97,22 @@ def scoreDistribution(v,w):
     if len(v) == 0: return {0:1}
     # Try pairing v[0] with everything from w.
     total = {}
-    for v0pair in range(len(w)):
+    for v0pair in xrange(len(w)):
         result0 = cmp(v[0], w[v0pair])
         remainingv = v[1:]
         remainingw = w[:v0pair]+w[v0pair+1:]
         remainingv,remainingw = simplify(remainingv,remainingw)
         resultRest = scoreDistribution(remainingv,remainingw)
-        result = {score+result0:times for (score,times) in list(resultRest.items())}
+        result = {score+result0:times for (score,times) in resultRest.items()}
         # add result to total
-        for (score,times) in list(result.items()):
+        for (score,times) in result.items():
             total[score] = total.get(score,0)+times
 
     return total
 
 def wchoice(ary):
     ''' ary is like [ (apple,1), (banana,3), (orange,2.5) ] '''
-    total = sum([x[1] for x in ary])
+    total = sum(map(lambda x:x[1],ary))
     windex = random()*total
     for a in ary:
         if windex < a[1]:
@@ -128,13 +128,13 @@ def randPermute(army):
 
 def exploit(army):
     """outputs something that beats army."""
-    indices = sorted(list(range(8)), key=lambda x: army[x], reverse=True)
+    indices = sorted(range(8), key=lambda x: army[x], reverse=True)
     free = army[indices[0]]+army[indices[1]]
     army = list(army)
     army[indices[0]] = 0
     army[indices[1]] = 0
-    remain = [(free+i)/8 for i in range(8)]
-    for i in range(8):
+    remain = [(free+i)/8 for i in xrange(8)]
+    for i in xrange(8):
         army[i] += remain[i]
     shuffle(army)
     return tuple(army)
@@ -187,7 +187,7 @@ def SupportVectorPony():
     ponies = [TwilightSparkle(), Spike(), TitForTat()]
     scores = {p:0 for p in ponies}
     alpha = 0.995
-    herds = {p:tuple(next(p)) for p in ponies}
+    herds = {p:tuple(p.next()) for p in ponies}
     myMove = herds[ponies[0]]
     shuffles = {ponies[0]:True, ponies[1]:False, ponies[2]:True}
     usage = {p:0 for p in ponies}
@@ -203,7 +203,7 @@ def SupportVectorPony():
                 score = Escore(herds[p], tuple(opponentsLastMove))
             else:
                 result = [cmp(herds[p][i],opponentsLastMove[i])
-                          for i in range(8)]
+                          for i in xrange(8)]
                 result = cmp(sum(result),0)
                 score = 40320*result
             scores[p] += score
@@ -217,6 +217,6 @@ def SupportVectorPony():
         usage[bestPony] += 1
         iterations += 1
         if iterations == 900:
-            print(usage)
-            print(scores)
+            print usage
+            print scores
         myMove = herds[bestPony]

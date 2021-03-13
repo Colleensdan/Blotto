@@ -6,9 +6,9 @@ from StrategyUtils import StrategyRanker
 
 def main():
     static_strat_list = []
-    for i in range(0, 101, 1):
-        for j in range(0, 101-i, 1):
-            for k in range(j, 101-i-j):
+    for i in xrange(0, 101, 1):
+        for j in xrange(0, 101-i, 1):
+            for k in xrange(j, 101-i-j):
                 static_strat_list.append([i, j, k])
 
     strategies = []
@@ -19,7 +19,7 @@ def main():
     sr.run()
 
     top_strats = sr.get_top_strategies(1)
-    print(top_strats)
+    print top_strats
 
 
 if __name__ == "__main__":

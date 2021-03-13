@@ -2,8 +2,8 @@ __author__ = "camzz/linus"
 
 from random import randint
 
-from BaseStrategy import BaseStrategy
-from StrategyUtils.random_utils import get_allocation_uniform
+from Blotto.BaseStrategy import BaseStrategy
+from Blotto.StrategyUtils.random_utils import get_allocation_uniform
 
 
 class CopierStrategy(BaseStrategy):

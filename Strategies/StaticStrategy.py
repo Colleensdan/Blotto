@@ -2,7 +2,7 @@ __author__ = 'camzzz'
 
 import random
 
-from BaseStrategy import BaseStrategy
+from Blotto.BaseStrategy import BaseStrategy
 
 
 class StaticStrategy(BaseStrategy):

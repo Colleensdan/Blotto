@@ -1,7 +1,7 @@
 __author__ = "Linus"
 
 
-from .simple import Copier
+from simple import Copier
 
 
 # This file helps interface simple.py with Matthew's code.
@@ -34,7 +34,7 @@ class Strategy(object):
 
     def soldiers_request(self, iteration):
         if self.opponentsLastMove == None:
-            return next(self.program)
+            return self.program.next()
         else:
             return self.program.send(self.opponentsLastMove)
 

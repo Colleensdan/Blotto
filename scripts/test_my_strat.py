@@ -1,7 +1,15 @@
 __author__ = 'camzzz'
 
+import sys
+import os
+
+
+
 from GameManager import GameManager
 from Strategies import *
+
+
+
 
 #Import your strategy
 #from Strategies.MyStrategy import MyStrategy
@@ -18,7 +26,7 @@ def main():
     gm = GameManager(my_strat, opponent, num_fields=8, num_runs=1)
     gm.run()
     # Uncomment this if you have matplotlib
-    # gm.plot_results()
+    gm.plot_results()
     gm.declare_winner()
 
 

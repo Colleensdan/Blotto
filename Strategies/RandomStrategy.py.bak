@@ -2,9 +2,9 @@ __author__ = 'camzzz'
 
 import random
 
-from Blotto.BaseStrategy import BaseStrategy
-from Blotto.general_utils import UsageError
-from Blotto.StrategyUtils.random_utils import random_draw_allocation, random_number_allocation, \
+from BaseStrategy import BaseStrategy
+from general_utils import UsageError
+from StrategyUtils.random_utils import random_draw_allocation, random_number_allocation, \
     dirichlet_allocation, get_allocation_uniform
 
 
@@ -16,7 +16,7 @@ class RandomStyle(object):
 
     @classmethod
     def get_name(cls, num):
-        for k, v in cls.__dict__.items():
+        for k, v in cls.__dict__.iteritems():
             if v == num:
                 return k
         else:

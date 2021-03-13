@@ -1,5 +1,5 @@
 import random
-import BaseStrategy
+import Blotto.BaseStrategy as BaseStrategy
 
 class Strategy(BaseStrategy.BaseStrategy):
     """

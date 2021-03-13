@@ -1,8 +1,8 @@
 __author__ = 'camzzz'
 
-from StrategyUtils.random_utils import weighted_draw
+from Blotto.StrategyUtils.random_utils import weighted_draw
 
-from BaseStrategy import BaseStrategy
+from Blotto.BaseStrategy import BaseStrategy
 
 
 class MixedStrategy(BaseStrategy):

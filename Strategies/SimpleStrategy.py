@@ -1,6 +1,6 @@
 __author__ = "camzz"
 
-from BaseStrategy import BaseStrategy
+from Blotto.BaseStrategy import BaseStrategy
 
 class SimpleStrategy(BaseStrategy):
     """
@@ -29,7 +29,7 @@ class SimpleStrategy(BaseStrategy):
         
         You can look at:
             self.opponent_allocations
-            which is a list of the opponents strategies so far.Carefult not to change it!
+            which is a list of the opponents strategies so far. Careful not to change it!
             
             self.past_scores
             which is a list of the scores so far in this match.
