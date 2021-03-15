@@ -1,30 +1,7 @@
 http://en.wikipedia.org/wiki/Blotto_games
 
-To be played at the MathSpace event on 6th March, https://wiki.london.hackspace.org.uk/view/Group:MathSpace
+Multi-Resource Colonel Blotto where each battlefield has an incrementally by one larger score, and any three consecutive wins, win the rest of the territories.
 
-Download the code and start writing your own strategy or additions to the codebase.
-Please push anything you work on! Post on the mailing list (https://groups.google.com/forum/#!forum/lhs-mathspace) with any questions.
+An environment for a model to play this game has been created within the GymMRCB package using OpenAI gym.
 
-To get started, copy SimpleStrategy (in the Strategies folder) and rename it to your own strategy name in the same directory.
-The basic task is to implement soldiers_request which is where you decide your move on each turn.
-Simple examples to look at:
- - StaticStrategy
- - CopierStrategy
-
-To test your strategy out look at scripts/test_my_strat.py.**
-
-**You may need to add the repo directory to your python path, I had forgotten about this, sorry!** 
-**Update, try running from the repo directory, if that doesnt work add repo directory to python path** 
-
-On the night we will start by battling 100 soldiers, across 8 fields, and 10,000 runs.
-The winner will be the one that wins the most games over all 10,000 runs, i.e. a max score of 10,000.
-People might mess around with other setups afterwards. Suggestions of weighted field values or more/less soldiers/fields
-
-Uses:
-
- - python2.7
- 
- Optional:
- - matplotlib (sudo apt-get install python-matplotlib on linux or equivalent elsewhere)
- - numpy (sudo apt-get install python-numpy on linux or equivalent elsewhere)
- - progressbar (sudo pip install progressbar on linux or equivalent elsewhere)
+The algorithm for a Deep Q-network has been implemented with some dependency issues depending on the package of tensorflow used (keras.rl relies on tensorflow 1.0). Debugging is needed for implementation of this algorithm
